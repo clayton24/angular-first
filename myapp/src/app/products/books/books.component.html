@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col s12 m4" *ngFor="let mobPart of mobParts">
+    <div class="card">
+      <div class="card-image">
+        <img src="../../../assets/img/sample-1.jpg" />
+        <span class="card-title">Card Title</span>
+        <a class="btn-floating halfway-fab waves-effect waves-light red"
+          ><i class="material-icons">add</i></a
+        >
+      </div>
+      <div class="card-content">
+        <ul>
+          <li>
+            <p [style.color]="mobPart.pColor">Product Id: {{ mobPart.id }}</p>
+            <p [ngStyle]="{ 'font-size.px': 24 }">
+              Book Name: {{ mobPart.name }}
+            </p>
+            <p *ngIf="mobPart.inStock > 0">Stock: {{ mobPart.inStock }}</p>
+            <!-- <ng-template #stockVal>
+              Last <mark>{{ mobPart.inStock }}</mark> Parts Available in stock now...
+            </ng-template>
+            <ng-template #outOfStock>
+              Out Of Stock
+            </ng-template> -->
+            <p>Author: {{ mobPart.author }}</p>
+            <div *ngIf="mobPart.isOnline == true">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Green_sphere.svg/2000px-Green_sphere.svg.png"
+                width="16"
+              />
+            </div>
+            <p>Price: {{ mobPart.price }}</p>
+            <p>Description: {{ mobPart.desc }}</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,61 @@
+<div class="row">
+  <div class="col s12 m4" *ngFor="let mobPart of mobParts">
+    <div class="card">
+      <div class="card-image">
+        <img src="../../../assets/img/sample-1.jpg" />
+        <span class="card-title">Card Title</span>
+        <a class="btn-floating halfway-fab waves-effect waves-light red"
+          ><i class="material-icons">add</i></a
+        >
+      </div>
+      <div class="card-content">
+        <ul>
+          <li>
+            <p [style.color]="mobPart.pColor">Product Id: {{ mobPart.id }}</p>
+            <p [ngStyle]="{ 'font-size.px': 24 }">
+              Product Name: {{ mobPart.name }}
+            </p>
+            <p *ngIf="mobPart.inStock > 0">Stock: {{ mobPart.inStock }}</p>
+            <!-- <ng-template #stockVal>
+              Last <mark>{{ mobPart.inStock }}</mark> Parts Available in stock now...
+            </ng-template>
+            <ng-template #outOfStock>
+              Out Of Stock
+            </ng-template> -->
+            <span [ngSwitch]="mobPart.country">
+              Country :
+              <img
+                *ngSwitchCase="'India'"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Flag_of_India.svg/1350px-Flag_of_India.svg.png"
+                width="24"
+              />
+              <img
+                *ngSwitchCase="'South Korea'"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Flag_of_South_Korea.svg/1280px-Flag_of_South_Korea.svg.png"
+                width="24"
+              />
+              <img
+                *ngSwitchCase="'USA'"
+                src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/1280px-Flag_of_the_United_States.svg.png"
+                width="24"
+              />
+              <img
+                *ngSwitchDefault
+                src="https://cdn2.iconfinder.com/data/icons/world-flag-icons/256/Flag_of_Japan.png"
+                width="24"
+              />
+            </span>
+            <div *ngIf="mobPart.isOnline == true">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Green_sphere.svg/2000px-Green_sphere.svg.png"
+                width="16"
+              />
+            </div>
+            <p>Price: {{ mobPart.price | currency: "INR" }}</p>
+            <p>Description: {{ mobPart.desc }}</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
