@@ -4,7 +4,7 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 @Component({
   selector: 'app-start',
-  template: '<h1>Angular Wedcome you</h1>',
+  template: '<h1>Angular  Yes Angular! Welcomes you</h1>',
 })
 class FirstComponent {}
 
